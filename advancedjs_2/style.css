@@ -1,43 +1,25 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+.filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #1d0379;
-    line-height: 1.6;
+.filter label {
+    font-weight: bold;
 }
 
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.header {
-    background-color: #1d0379;
-    color: white;
-    padding: 40px 0;
-    margin-bottom: 40px;
-}
-
-.header h1 {
-    margin-bottom: 10px;
-}
-
-.restaurants-section {
-    background-color: white;
-    padding: 25px;
-    margin-bottom: 30px;
-    border-radius: 10px;
+.filter select {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .table-wrapper {
     overflow-x: auto;
-    margin-top: 20px;
 }
 
 table {
@@ -76,6 +58,7 @@ tbody tr:hover {
 .modal {
     position: fixed;
     inset: 0;
+
     background-color: rgba(0, 0, 0, 0.6);
 
     display: flex;
@@ -83,6 +66,7 @@ tbody tr:hover {
     justify-content: center;
 
     padding: 20px;
+
     z-index: 1000;
 }
 
@@ -96,21 +80,12 @@ tbody tr:hover {
     overflow-y: auto;
 
     background-color: white;
+
     border-radius: 10px;
 
     padding: 30px;
+
     color: #222;
-}
-
-.modal-content h2 {
-    color: #1d0379;
-    margin-bottom: 15px;
-}
-
-.modal-content h3 {
-    margin-top: 25px;
-    margin-bottom: 10px;
-    color: #1d0379;
 }
 
 .modal-close {
@@ -123,6 +98,7 @@ tbody tr:hover {
     background: transparent;
 
     color: #222;
+
     font-size: 30px;
 
     cursor: pointer;
@@ -151,28 +127,28 @@ tbody tr:hover {
 }
 
 
-/* FOOTER */
-
 footer {
     text-align: center;
+
     padding: 30px;
+
     margin-top: 40px;
 
     background-color: #222;
+
     color: white;
 }
 
 
-/* MOBILE */
-
 @media (max-width: 600px) {
 
-    .header {
-        padding: 25px 0;
+    .filter {
+        flex-direction: column;
+        align-items: stretch;
     }
 
-    .restaurants-section {
-        padding: 15px;
+    .filter select {
+        width: 100%;
     }
 
     th,

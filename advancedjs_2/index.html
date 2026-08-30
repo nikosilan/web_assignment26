@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="fi">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
@@ -9,72 +12,135 @@
 
     <title>Student Restaurants Finland</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <header class="header">
-        <div class="container">
-            <h1>Student Restaurants</h1>
-            <p>
-                Opiskelijaravintolat ja ruokalistat Suomessa
-            </p>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Student Restaurants
+        </h1>
+
+        <p>
+            Opiskelijaravintolat ja
+            ruokalistat Suomessa
+        </p>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+    <section class="restaurants-section">
+
+        <h2>
+            Ravintolat
+        </h2>
+
+
+        <div class="filter">
+
+            <label for="company-filter">
+                Palveluntarjoaja:
+            </label>
+
+
+            <select id="company-filter">
+
+                <option value="all">
+                    Kaikki
+                </option>
+
+                <option value="Sodexo">
+                    Sodexo
+                </option>
+
+                <option value="Compass Group">
+                    Compass Group
+                </option>
+
+            </select>
+
         </div>
-    </header>
 
 
-    <main class="container">
+        <div class="table-wrapper">
 
-        <section class="restaurants-section">
+            <table>
 
-            <h2>Ravintolat</h2>
+                <thead>
 
-            <div class="table-wrapper">
+                    <tr>
 
-                <table>
+                        <th>
+                            Ravintola
+                        </th>
 
-                    <thead>
-                        <tr>
-                            <th>Ravintola</th>
-                            <th>Palveluntarjoaja</th>
-                        </tr>
-                    </thead>
+                        <th>
+                            Palveluntarjoaja
+                        </th>
 
-                    <tbody id="restaurant-list">
+                    </tr>
 
-                        <tr>
-                            <td colspan="2">
-                                Ladataan ravintoloita...
-                            </td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </section>
-
-    </main>
+                </thead>
 
 
-    <div
-        id="restaurant-modal"
-        class="modal hidden"
-    ></div>
+                <tbody id="restaurant-list">
+
+                    <tr>
+
+                        <td colspan="2">
+                            Ladataan ravintoloita...
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
 
 
-    <footer>
-        <p>Student Restaurants</p>
-    </footer>
+</main>
 
 
-    <script
-        type="module"
-        src="main.js"
-    ></script>
+<div
+    id="restaurant-modal"
+    class="modal hidden"
+></div>
+
+
+<footer>
+
+    <p>
+        Student Restaurants
+    </p>
+
+</footer>
+
+
+<script
+    type="module"
+    src="main.js"
+></script>
+
 
 </body>
+
 </html>

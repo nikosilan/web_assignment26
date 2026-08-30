@@ -1,5 +1,8 @@
 export const restaurantRow = (restaurant) => {
-    const { name, company } = restaurant;
+    const {
+        name,
+        company
+    } = restaurant;
 
     const row = document.createElement("tr");
 
@@ -11,6 +14,7 @@ export const restaurantRow = (restaurant) => {
     return row;
 };
 
+
 export const restaurantModal = (restaurant, menu) => {
     const {
         name,
@@ -21,34 +25,68 @@ export const restaurantModal = (restaurant, menu) => {
         company
     } = restaurant;
 
-    const { courses = [] } = menu;
+    const {
+        courses = []
+    } = menu;
 
     const menuHtml = courses.length
         ? `
             <ul class="menu-list">
-                ${courses.map(({ name, price, diets }) => `
-                    <li>
-                        <strong>${name}</strong>
-                        <span>${price || "?€"}</span>
-                        <p>${diets || "Ei ilmoitettu"}</p>
-                    </li>
-                `).join("")}
+                ${courses.map(
+                    ({
+                        name,
+                        price,
+                        diets
+                    }) => `
+                        <li>
+                            <strong>${name}</strong>
+                            <span>
+                                ${price || "Hinta ei ilmoitettu"}
+                            </span>
+                            <p>
+                                ${diets || "Ei ilmoitettu"}
+                            </p>
+                        </li>
+                    `
+                ).join("")}
             </ul>
         `
-        : "<p>Tälle päivälle ei löytynyt menua.</p>";
+        : `
+            <p>
+                Tälle päivälle ei löytynyt menua.
+            </p>
+        `;
 
     return `
         <div class="modal-content">
-            <button class="modal-close" aria-label="Sulje">×</button>
+
+            <button
+                class="modal-close"
+                aria-label="Sulje"
+            >
+                ×
+            </button>
 
             <h2>${name}</h2>
+
             <p>${address || ""}</p>
-            <p>${postalCode || ""}, ${city || ""}</p>
+
+            <p>
+                ${postalCode || ""}
+                ${city || ""}
+            </p>
+
             <p>${phone || ""}</p>
-            <p>Palveluntarjoaja: ${company || "Ei tiedossa"}</p>
+
+            <p>
+                Palveluntarjoaja:
+                ${company || "Ei tiedossa"}
+            </p>
 
             <h3>Päivän menu</h3>
+
             ${menuHtml}
+
         </div>
     `;
 };
