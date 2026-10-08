@@ -20,14 +20,30 @@
 
     <main class="container">
 
-        <section class="restaurants-section">
-            <h2>Ravintolat</h2>
 
-            <div id="restaurant-list" class="restaurant-list">
-                <p>Ladataan ravintoloita...</p>
-            </div>
-        </section>
+    <section class="restaurants-section">
+        <h2>Ravintolat</h2>
 
+        <div class="search-container">
+            <label for="restaurant-search">
+                Hae ravintolaa
+            </label>
+
+            <input
+                type="search"
+                id="restaurant-search"
+                placeholder="Kirjoita ravintolan nimi..."
+            >
+        </div>
+
+        <div id="restaurant-list" class="restaurant-list">
+            <p>Ladataan ravintoloita...</p>
+        </div>
+    </section>
+
+
+
+    <div id="restaurant-list" class="restaurant-list">
         <section id="menu-section" class="menu-section hidden">
 
             <h2 id="restaurant-name"></h2>

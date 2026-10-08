@@ -19,7 +19,12 @@ const weeklyMenuButton =
 const menuContainer =
     document.querySelector("#menu-container");
 
+const restaurantSearch =
+    document.querySelector("#restaurant-search");
+
 let selectedRestaurant = null;
+
+let allRestaurants = [];
 
 // HAE RAVINTOLAT
 async function getRestaurants() {
@@ -46,7 +51,9 @@ async function getRestaurants() {
             );
         }
 
-        displayRestaurants(restaurants);
+        allRestaurants = restaurants;
+
+        displayRestaurants(allRestaurants);
 
     } catch (error) {
 
@@ -128,6 +135,27 @@ function displayRestaurants(restaurants) {
 
         }
     );
+}
+function searchRestaurants() {
+
+    const searchTerm =
+        restaurantSearch.value
+            .trim()
+            .toLowerCase();
+
+    const filteredRestaurants =
+        allRestaurants.filter(
+            function (restaurant) {
+
+                const name =
+                    (restaurant.name || "")
+                        .toLowerCase();
+
+                return name.includes(searchTerm);
+            }
+        );
+
+    displayRestaurants(filteredRestaurants);
 }
 
 // VALITSE RAVINTOLA
@@ -486,18 +514,19 @@ function displayWeeklyMenu(data) {
     );
 }
 
-// NAPIT
 dailyMenuButton.addEventListener(
     "click",
     showDailyMenu
 );
-
 
 weeklyMenuButton.addEventListener(
     "click",
     showWeeklyMenu
 );
 
+restaurantSearch.addEventListener(
+    "input",
+    searchRestaurants
+);
 
-// KÄYNNISTÄ SOVELLUS
 getRestaurants();
