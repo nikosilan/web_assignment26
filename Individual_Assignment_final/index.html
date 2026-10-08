@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Student Restaurants Finland</title>
-
+    <meta name="description" content="Opiskelijaravintolat ja ruokalistat Suomessa">
+    <title>Student Restaurants</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="js/main.js"></script>
 </head>
-
 <body>
-
     <header class="header">
         <div class="container">
             <h1>Student Restaurants</h1>
@@ -19,58 +17,48 @@
     </header>
 
     <main class="container">
+        <section class="restaurants-section">
+            <h2>Ravintolat</h2>
 
+            <div class="search-container">
+                <label for="restaurant-search">Hae ravintolaa</label>
+                <input
+                    type="search"
+                    id="restaurant-search"
+                    placeholder="Kirjoita ravintolan nimi..."
+                    autocomplete="off"
+                >
+            </div>
 
-    <section class="restaurants-section">
-        <h2>Ravintolat</h2>
+            <p id="restaurant-count" class="result-count" aria-live="polite"></p>
 
-        <div class="search-container">
-            <label for="restaurant-search">
-                Hae ravintolaa
-            </label>
+            <div id="restaurant-list" class="restaurant-list">
+                <p>Ladataan ravintoloita...</p>
+            </div>
+        </section>
 
-            <input
-                type="search"
-                id="restaurant-search"
-                placeholder="Kirjoita ravintolan nimi..."
-            >
-        </div>
-
-        <div id="restaurant-list" class="restaurant-list">
-            <p>Ladataan ravintoloita...</p>
-        </div>
-    </section>
-
-
-
-    <div id="restaurant-list" class="restaurant-list">
         <section id="menu-section" class="menu-section hidden">
-
-            <h2 id="restaurant-name"></h2>
+            <h2 id="restaurant-name">Valitse ravintola</h2>
 
             <div class="menu-buttons">
-                <button id="daily-menu-button">
+                <button id="daily-menu-button" type="button">
                     Päivän menu
                 </button>
-
-                <button id="weekly-menu-button">
+                <button id="weekly-menu-button" type="button">
                     Viikon menu
                 </button>
             </div>
 
-            <div id="menu-container">
+            <div id="menu-container" aria-live="polite">
                 <p>Valitse ruokalista.</p>
             </div>
-
         </section>
-
     </main>
 
-    <footer>
-        <p>Student Restaurants</p>
+    <footer class="footer">
+        <div class="container">
+            <p>Student Restaurants Finland</p>
+        </div>
     </footer>
-
-    <script src="app.js"></script>
-
 </body>
 </html>
