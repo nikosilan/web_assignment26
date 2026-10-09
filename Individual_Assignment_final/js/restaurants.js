@@ -1,4 +1,3 @@
-
 import { getRestaurants } from "./api.js";
 import { setSelectedRestaurant } from "./state.js";
 import { resetMenu } from "./menu.js";
@@ -8,6 +7,7 @@ const restaurantSearch = document.querySelector("#restaurant-search");
 const restaurantCount = document.querySelector("#restaurant-count");
 const menuSection = document.querySelector("#menu-section");
 const restaurantName = document.querySelector("#restaurant-name");
+const cityFilter = document.querySelector("#city-filter");
 
 let allRestaurants = [];
 
@@ -17,13 +17,41 @@ export async function loadRestaurants() {
 
     try {
         allRestaurants = await getRestaurants();
+
+        populateCityFilter(allRestaurants);
         displayRestaurants(allRestaurants);
     } catch (error) {
         console.error("Ravintoloiden lataaminen epäonnistui:", error);
+
         restaurantList.textContent =
             "Ravintoloita ei voitu ladata. Yritä myöhemmin uudelleen.";
+
         restaurantCount.textContent = "";
     }
+}
+
+function populateCityFilter(restaurants) {
+    const cities = [
+        ...new Set(
+            restaurants
+                .map((restaurant) => restaurant.city)
+                .filter((city) => city && city.trim())
+        )
+    ].sort((a, b) => a.localeCompare(b, "fi"));
+
+    cityFilter.replaceChildren();
+
+    const defaultOption = document.createElement("option");
+    defaultOption.value = "";
+    defaultOption.textContent = "Kaikki kaupungit";
+    cityFilter.appendChild(defaultOption);
+
+    cities.forEach((city) => {
+        const option = document.createElement("option");
+        option.value = city;
+        option.textContent = city;
+        cityFilter.appendChild(option);
+    });
 }
 
 function displayRestaurants(restaurants) {
@@ -48,7 +76,8 @@ function displayRestaurants(restaurants) {
         title.textContent = restaurant.name || "Nimetön ravintola";
 
         const address = document.createElement("p");
-        address.textContent = restaurant.address || "Osoitetta ei ilmoitettu";
+        address.textContent =
+            restaurant.address || "Osoitetta ei ilmoitettu";
 
         const city = document.createElement("p");
         city.textContent = [
@@ -102,21 +131,30 @@ function displayRestaurants(restaurants) {
 }
 
 function searchRestaurants() {
-    const searchTerm = restaurantSearch.value.trim().toLocaleLowerCase("fi");
+    const searchTerm = restaurantSearch.value
+        .trim()
+        .toLocaleLowerCase("fi");
+
+    const selectedCity = cityFilter.value;
 
     const filteredRestaurants = allRestaurants.filter((restaurant) => {
         const name = (restaurant.name || "").toLocaleLowerCase("fi");
         const city = (restaurant.city || "").toLocaleLowerCase("fi");
         const address = (restaurant.address || "").toLocaleLowerCase("fi");
 
-        return (
+        const matchesSearch =
             name.includes(searchTerm) ||
             city.includes(searchTerm) ||
-            address.includes(searchTerm)
-        );
+            address.includes(searchTerm);
+
+        const matchesCity =
+            !selectedCity || restaurant.city === selectedCity;
+
+        return matchesSearch && matchesCity;
     });
 
     displayRestaurants(filteredRestaurants);
 }
 
 restaurantSearch.addEventListener("input", searchRestaurants);
+cityFilter.addEventListener("change", searchRestaurants);

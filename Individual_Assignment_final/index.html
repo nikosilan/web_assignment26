@@ -20,15 +20,23 @@
         <section class="restaurants-section">
             <h2>Ravintolat</h2>
 
-            <div class="search-container">
-                <label for="restaurant-search">Hae ravintolaa</label>
-                <input
-                    type="search"
-                    id="restaurant-search"
-                    placeholder="Kirjoita ravintolan nimi..."
-                    autocomplete="off"
-                >
-            </div>
+        
+        <div class="search-container">
+            <label for="restaurant-search">Hae ravintolaa</label>
+            <input
+                type="search"
+                id="restaurant-search"
+                placeholder="Kirjoita ravintolan nimi..."
+                autocomplete="off"
+            >
+
+            <label for="city-filter">Suodata kaupungin mukaan</label>
+            <select id="city-filter">
+                <option value="">Kaikki kaupungit</option>
+            </select>
+        </div>
+        
+
 
             <p id="restaurant-count" class="result-count" aria-live="polite"></p>
 
