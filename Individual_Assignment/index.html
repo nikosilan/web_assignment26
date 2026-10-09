@@ -3,58 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Student Restaurants Finland</title>
-
+    <title>Opiskelijaravintolat</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <header class="header">
-        <div class="container">
-            <h1>Student Restaurants</h1>
-            <p>Opiskelijaravintolat ja ruokalistat Suomessa</p>
+    <header class="site-header">
+        <div class="wrap">
+    
+            <h1>Opiskelijaravintolat</h1>
+        
         </div>
     </header>
 
-    <main class="container">
-
-        <section class="restaurants-section">
+    <main class="wrap">
+        <section>
             <h2>Ravintolat</h2>
 
-            <div id="restaurant-list" class="restaurant-list">
-                <p>Ladataan ravintoloita...</p>
-            </div>
+            <ul class="restaurants">
+                <li>
+                    <a href="#menu">
+                        <h3>Ravintola Myyrmäki</h3>
+                        <p>Karhusaarentie 2, 02600 Espoo</p>
+                        <p class="company">Sodexo</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#menu">
+                        <h3>Ravintola Karamalmi</h3>
+                        <p>Karaportti 2, 02610 Espoo</p>
+                        <p class="company">Compass</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#menu">
+                        <h3>Ravintola Arabia</h3>
+                        <p>Hämeentie 135, 00560 Helsinki</p>
+                        <p class="company">Unicafe</p>
+                    </a>
+                </li>
+            </ul>
         </section>
 
-        <section id="menu-section" class="menu-section hidden">
+        <section id="menu" class="menu">
+            <h2>Ravintola Myyrmäki</h2>
 
-            <h2 id="restaurant-name"></h2>
-
-            <div class="menu-buttons">
-                <button id="daily-menu-button">
-                    Päivän menu
-                </button>
-
-                <button id="weekly-menu-button">
-                    Viikon menu
-                </button>
+            <div class="tabs">
+                <button type="button" class="active">Tänään</button>
+                <button type="button">Koko viikko</button>
             </div>
 
-            <div id="menu-container">
-                <p>Valitse ruokalista.</p>
-            </div>
-
+            <ul class="dishes">
+                <li>
+                    <div>
+                        <h4>Kasvispyörykät ja tomaattikastike</h4>
+                        <p>L, VEG</p>
+                    </div>
+                    <span class="price">2,95 €</span>
+                </li>
+                <li>
+                    <div>
+                        <h4>Broileria ja riisiä</h4>
+                        <p>G, M</p>
+                    </div>
+                    <span class="price">2,95 €</span>
+                </li>
+            </ul>
         </section>
-
     </main>
 
-    <footer>
-        <p>Student Restaurants</p>
-    </footer>
-
-    <script src="app.js"></script>
 
 </body>
 </html>
