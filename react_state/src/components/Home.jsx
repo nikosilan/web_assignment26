@@ -49,7 +49,7 @@ const [selectedItem, setSelectedItem] = useState(null);
 
 return ( <main> <h2>My Media</h2>
 
-```
+
   <div className="table-container">
     <table>
       <thead>
