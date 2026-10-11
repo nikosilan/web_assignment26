@@ -1,0 +1,44 @@
+body {
+margin: 0;
+padding: 24px;
+font-family: Arial, sans-serif;
+}
+
+header {
+margin-bottom: 24px;
+}
+
+nav a {
+margin-right: 8px;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+th,
+td {
+padding: 10px;
+border: 1px solid #ccc;
+text-align: left;
+}
+
+th {
+background: #f2f2f2;
+}
+
+td img {
+display: block;
+}
+
+.single-view img,
+.single-view video {
+max-height: 70vh;
+object-fit: contain;
+}
+
+button {
+padding: 8px 16px;
+cursor: pointer;
+}
